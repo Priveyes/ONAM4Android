@@ -4,14 +4,12 @@ package com.basilgregory.onam.android;
  * Created by donpeter on 8/28/17.
  */
 
-import android.app.Activity;
+import android.support.v7.app.*;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.*;
 
-import java.io.Serializable;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 /**
  * This class will act as the base class for all Entity POJOs.
@@ -118,11 +116,11 @@ public abstract class Entity implements Serializable{
      *
      * @param activityObject - Current class object or preferably Acitivty object (ex. Activity.this).
      */
-    public static void init(Activity activityObject, Object classWithDBAnnotation){
+    public static void init(AppCompatActivity activityObject, Object classWithDBAnnotation){
         DBExecutor.init(activityObject.getApplicationContext(),classWithDBAnnotation);
     }
 
-    public static void init(Activity activityObject){
+    public static void init(AppCompatActivity activityObject){
         DBExecutor.init(activityObject.getApplicationContext(),activityObject);
     }
 

@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ONAM4Android.iml" filepath="$PROJECT_DIR$/ONAM4Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/Onam for Android.iml" filepath="$PROJECT_DIR$/Onam for Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/onam/onam.iml" filepath="$PROJECT_DIR$/onam/onam.iml" />
       <module fileurl="file://$PROJECT_DIR$/onam/onam.iml" filepath="$PROJECT_DIR$/onam/onam.iml" />
     </modules>
   </component>

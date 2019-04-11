@@ -179,19 +179,9 @@ public class AllPostsActivity extends AppCompatActivity {
 
     }
 
-    View.OnClickListener removeAllPosts = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Post.truncate(Post.class);
-        }
-    };
+    View.OnClickListener removeAllPosts = v -> Post.truncate(Post.class);
 
-    View.OnClickListener addNewPlan = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(AllPostsActivity.this,AddPostActivity.class));
-        }
-    };
+    View.OnClickListener addNewPlan = v -> startActivity(new Intent(AllPostsActivity.this,AddPostActivity.class));
 
     private void fetchAllPosts(){
         postList =  Post.findAll(Post.class);

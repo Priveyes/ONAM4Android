@@ -18,7 +18,7 @@ class Storage {
                 "database_meta", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(databaseName, DB.toString(dbMetaData));
-        editor.commit();
+        editor.apply();
     }
 
     DbMetaData getCurrentDbMeta(String databaseName) throws Exception{

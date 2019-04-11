@@ -1,12 +1,10 @@
-<manifest package="com.basilgregory.onam"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-          xmlns:android="http://schemas.android.com/apk/res/android"
->
+    package="com.basilgregory.onam">
 
     <application
-                 android:label="@string/app_name"
-                 android:supportsRtl="true"
-    >
+        android:label="@string/app_name"
+        android:supportsRtl="true">
 
     </application>
 

@@ -31,7 +31,7 @@ public abstract class ONAMException extends java.lang.Exception {
     }
 
     public String toString () {
-        StringBuffer sb = new StringBuffer(this.code).append(": ").append(this.getMessage());
+        StringBuilder sb = new StringBuilder(this.code).append(": ").append(this.getMessage());
         if (entity != null) sb.append("\n Entity").append(entity.getClass().getSimpleName());
         if (query != null) sb.append("\n Query").append(query);
         if (field != null) sb.append("\n Field").append(field.getName());

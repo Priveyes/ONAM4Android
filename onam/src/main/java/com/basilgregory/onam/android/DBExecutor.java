@@ -36,7 +36,7 @@ class DBExecutor extends SQLiteOpenHelper {
     Storage storage;
     String dbName;
     private static DBExecutor instance = null;
-    private static Map<String,DBExecutor> instances = new HashMap<String,DBExecutor>();
+    private static Map<String,DBExecutor> instances = new HashMap<>();
     public static DBExecutor getInstance(Context context, String dbName, int version) {
         if (instances.containsKey(dbName)) instance = instances.get(dbName);
         instance = instance == null ?
@@ -248,7 +248,7 @@ class DBExecutor extends SQLiteOpenHelper {
 
 
     private List<Entity> convertToEntityAndFetchFirstDegreeRelatedEntity(Cursor cursor,Class<Entity> entityClass){
-        List<Entity> entities = new ArrayList<Entity>();
+        List<Entity> entities = new ArrayList<>();
         if (cursor != null && cursor.getCount() > 0 ) {
             cursor.moveToFirst();
             do {

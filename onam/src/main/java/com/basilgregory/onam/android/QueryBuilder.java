@@ -50,7 +50,7 @@ class QueryBuilder {
 
     static String findByProperty(Class<Entity> cls,String columnName,Object value,String orderByColumn, boolean descending, Integer startIndex,Integer pageSize){
         value = FieldType.isStringType(value) ? "'"+value+"'" : value;
-        StringBuffer orderByCondition = new StringBuffer(orderByColumn)
+        StringBuilder orderByCondition = new StringBuilder(orderByColumn)
                 .append(" ").append(descending ? "DESC" : "ASC");
         return selectQuery(DbUtil.getTableName(cls),columnName+" = "+value,null,orderByCondition.toString(),startIndex,pageSize);
     }
@@ -67,7 +67,7 @@ class QueryBuilder {
     }
 
     static String findAll(Class<Entity> cls,String whereClause,String orderByColumn,boolean descending,Integer startIndex,Integer pageSize){
-        StringBuffer orderByCondition = new StringBuffer(orderByColumn)
+        StringBuilder orderByCondition = new StringBuilder(orderByColumn)
                 .append(" ").append(descending ? "DESC" : "ASC");
         return selectQuery(DbUtil.getTableName(cls),whereClause,null,orderByCondition.toString(),startIndex,pageSize);
     }
@@ -86,7 +86,7 @@ class QueryBuilder {
         whereClause = whereClause == null? "" : " where "+ whereClause;
         groupBy = groupBy == null? "" : " group by "+ groupBy;
         orderBy = orderBy == null? "" : " order by "+orderBy;
-        StringBuffer selectQuery = new StringBuffer("select * from ").append(tableName)
+        StringBuilder selectQuery = new StringBuilder("select * from ").append(tableName)
                 .append(whereClause).append(groupBy).append(orderBy);
         if (pageSize != null)
             selectQuery.append(" LIMIT ").append(startIndex == null? 0 : startIndex).append(",").append(pageSize);

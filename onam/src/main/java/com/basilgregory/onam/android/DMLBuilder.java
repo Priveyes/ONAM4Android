@@ -33,7 +33,7 @@ class DMLBuilder {
     }
 
     private static HashMap<String,String> dropTables(List<String> tableNames){
-        HashMap<String,String> dmls = new HashMap<String,String>(tableNames.size());
+        HashMap<String,String> dmls = new HashMap<>(tableNames.size());
         for(String tableName:tableNames) {
             dmls.put(tableName,dropTable(tableName));
         }
@@ -45,7 +45,7 @@ class DMLBuilder {
     }
 
     static HashMap<String,String> renameTables(Class[] classes){
-        HashMap<String,String> dmls = new HashMap<String,String>(classes.length);
+        HashMap<String,String> dmls = new HashMap<>(classes.length);
         for(Class cls:classes) {
             if (cls == null) continue;
             Table table = (Table)cls.getAnnotation(Table.class);
@@ -60,7 +60,7 @@ class DMLBuilder {
     }
 
     static HashMap<String,String> addColumns(HashMap<Class,List<String>> classColumnNamePairs){
-        HashMap<String,String> dmls = new HashMap<String,String>(classColumnNamePairs.size());
+        HashMap<String,String> dmls = new HashMap<>(classColumnNamePairs.size());
         for(Class cls : classColumnNamePairs.keySet()) {
             if (cls == null || cls.getAnnotation(Table.class) == null) continue;
             String tableName = DbUtil.getTableName(cls);
@@ -78,7 +78,7 @@ class DMLBuilder {
     }
 
     private static List<String> addColumns(List<String> existingTableColumns, Class newTableClass){
-        List<String> addColumnsDml = new ArrayList<String>();
+        List<String> addColumnsDml = new ArrayList<>();
         if (existingTableColumns == null || newTableClass == null) return addColumnsDml;
         Field[] declaredFields = newTableClass.getDeclaredFields();
         for (Field field : declaredFields) {

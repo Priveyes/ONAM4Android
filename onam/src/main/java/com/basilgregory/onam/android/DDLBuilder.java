@@ -19,7 +19,7 @@ import static com.basilgregory.onam.android.DbUtil.getTableName;
 class DDLBuilder {
 
     static String createMappingTables(String tableName,Class fromClass,Class targetClass){
-        StringBuffer ddlCreate = new StringBuffer();
+        StringBuilder ddlCreate = new StringBuilder();
         //This pattern "table [] ( " is used in #{DbUtil.extractNameOfTableFromDdl} cross check when making a change.
         ddlCreate.append("create table ").append(tableName).append(" ( ");
         ddlCreate.append(DbUtil.getMappingForeignColumnNameClass(fromClass)).append(" integer,");
@@ -32,7 +32,7 @@ class DDLBuilder {
 
     static HashMap<String,String> createTables(List<Class> curatedClassList){
 
-        HashMap<String,String> ddls = new HashMap<String,String>(curatedClassList.size());
+        HashMap<String,String> ddls = new HashMap<>(curatedClassList.size());
 
         for(Class cls:curatedClassList) {
             if (cls == null || cls.getAnnotation(Table.class) == null) continue;
